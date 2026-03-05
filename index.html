@@ -1,1 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JohnCris Papuran - Personal Blog</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+body{
+font-family:'Rajdhani',sans-serif;
+background:#05080d;
+color:white;
+overflow-x:hidden;
+}
+
+/* SCROLL PROGRESS */
+#progressBar{
+position:fixed;
+top:0;
+left:0;
+height:4px;
+background:linear-gradient(90deg,red,blue);
+width:0%;
+z-index:9999;
+}
+
+/* PATROL LIGHT SWEEP */
+.patrol{
+position:fixed;
+top:0;
+left:-50%;
+width:50%;
+height:100%;
+background:linear-gradient(to right, rgba(255,0,0,0.2), rgba(0,0,255,0.2));
+transform:skewX(-20deg);
+animation:patrolMove 5s linear infinite;
+pointer-events:none;
+z-index:1;
+}
+
+@keyframes patrolMove{
+0%{left:-50%;}
+100%{left:150%;}
+}
+
+/* BOOT SCREEN */
+#boot{
+position:fixed;
+width:100%;
+height:100vh;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:10000;
+font-family:'Orbitron';
+animation:fadeOut 4s forwards 3s;
+}
+@keyframes fadeOut{
+to{opacity:0;visibility:hidden;}
+}
+
+/* NAV */
+nav{
+position:fixed;
+width:100%;
+padding:20px 10%;
+background:rgba(0,0,0,0.8);
+backdrop-filter:blur(8px);
+display:flex;
+justify-content:space-between;
+z-index:1000;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+}
+
+nav ul li a:hover{
+color:#1f78ff;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+z-index:2;
+position:relative;
+}
+
+.hero h1{
+font-family:'Orbitron';
+font-size:55px;
+}
+
+/* BUTTON */
+.btn{
+margin-top:20px;
+padding:12px 30px;
+background:#1f78ff;
+border:none;
+border-radius:30px;
+cursor:pointer;
+transition:0.4s;
+}
+.btn:hover{transform:scale(1.1);}
+
+/* SECTION */
+section{
+padding:100px 10%;
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+z-index:2;
+position:relative;
+}
+section.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* COMMAND CARD */
+.card{
+background:#0f1620;
+padding:25px;
+border-radius:15px;
+margin-top:20px;
+border-left:4px solid #1f78ff;
+transition:0.4s;
+}
+.card:hover{
+box-shadow:0 0 20px rgba(31,120,255,0.5);
+transform:translateY(-10px);
+}
+
+/* EVIDENCE BOARD */
+.board{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+.evidence{
+background:#1a222e;
+padding:20px;
+border-radius:10px;
+cursor:grab;
+}
+
+/* RANK SYSTEM */
+.rank{
+margin-top:20px;
+padding:10px 20px;
+background:#1f78ff;
+border-radius:30px;
+display:inline-block;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:40px;
+background:#05080d;
+}
+
+</style>
+</head>
+<body>
+
+<div id="progressBar"></div>
+<div class="patrol"></div>
+
+<div id="boot">
+<h1>JohnCris F.Papuran</h1>
+<p>Initializing...</p>
+</div>
+
+<nav>
+<h2 style="font-family:Orbitron;">JOHNCRIS F.PAPURAN</h2>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#profile">Profile</a></li>
+<li><a href="#evidence">Criminology Subjects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<div class="hero">
+<h1>PERSONAL BLOG</h1>
+<p>WELCOME!</p>
+<button class="btn" onclick="scrollToSection()">EXPLORE</button>
+</div>
+
+<!-- ABOUT SECTION -->
+<section id="about">
+<h2>About Me</h2>
+<div class="card">
+Hi, my name is John Cris Papuran. I’m a 3rd year college student and I’m 22 years old.
+
+Currently, I am pursuing my degree with dedication and passion, constantly striving to improve myself both academically and personally. As a student, I believe that growth doesn’t only happen inside the classroom but also through experiences, challenges, and the lessons we learn every day.
+
+I am someone who values discipline, perseverance, and continuous learning. Being in my third year has taught me the importance of responsibility, time management, and staying focused on long-term goals. Every subject I take and every challenge I face helps shape me into a better and more prepared individual for the future.
+
+Outside of academics, I enjoy exploring new ideas, learning new skills, and expressing myself creatively. I believe that success comes from hard work, faith, and the courage to step outside of your comfort zone.
+
+This blog is where I share my journey — my experiences as a student, the lessons I learn, my thoughts about life, and the things that inspire me. I hope that through my stories and reflections, I can connect with others, motivate someone, and document my growth as I continue working toward my dreams.
+
+Welcome to my journey.
+</div>
+</section>
+
+<section id="profile">
+<h2> Status</h2>
+<div class="STUDENT">STUDENT</div>
+<div class="card">"Keep your face always toward the sunshine—and shadows will fall behind you.": –</div>
+</section>
+
+<section id="evidence">
+<h2> Criminology</h2>
+<p>Subjects</p>
+<div class="board">
+<div class="evidence" draggable="true">Criminal Law and Procedure</div>
+<div class="evidence" draggable="true">Law Enforcement Administration</div>
+<div class="evidence" draggable="true">Crime Detection and Investigation</div>
+<div class="evidence" draggable="true">Correctional Administration</div>
+</div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+<h2>Contact</h2>
+<div class="card">
+<p>Email: johncris1728@gmail.com</p>
+<p>I am open to collaborations.</p>
+<br>
+<button class="btn">Send Application</button>
+</div>
+</section>
+
+<footer>
+© 2026 JOHN CRIS F. PAPURAN | GLORY TO GOD
+</footer>
+
+<script>
+
+/* SCROLL REVEAL */
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+const top=window.scrollY;
+const offset=sec.offsetTop-400;
+if(top>offset){
+sec.classList.add("active");
+}
+});
+
+/* SCROLL PROGRESS */
+let winScroll=document.body.scrollTop||document.documentElement.scrollTop;
+let height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+document.getElementById("progressBar").style.width=(winScroll/height)*100+"%";
+});
+
+/* BUTTON SCROLL */
+function scrollToSection(){
+document.getElementById("profile").scrollIntoView({behavior:"smooth"});
+}
+
+/* DRAG EFFECT */
+const evidences=document.querySelectorAll(".evidence");
+evidences.forEach(ev=>{
+ev.addEventListener("dragstart",()=>{ev.style.opacity="0.5";});
+ev.addEventListener("dragend",()=>{ev.style.opacity="1";});
+});
+
+</script>
+
+</body>
+</html>
